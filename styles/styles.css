@@ -1,0 +1,76 @@
+@import url('navigation.css');
+@import url('hero.css');
+@import url('services.css');
+@import url('about.css');
+@import url('footer.css');
+
+html {
+    font-family: Arial, Helvetica, sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+::selection {
+    background-color: #000;
+    color: #FFF;
+}
+
+.text-large {
+    font-size: 20px;
+    line-height: 1.5;
+}
+
+main {
+    z-index: 11;
+}
+
+main > div{
+    z-index: 11;
+    background-color: #FFF;
+}
+
+/*
+    * Styles for each individual letter span.
+    * They are set to inline-block to allow transitions.
+    */
+.scroll-letter {
+    display: inline-block;
+    opacity: 0;
+    transition: opacity 0.4s ease-out;
+    will-change: opacity;
+}
+
+/*
+    * When the parent paragraph gets the 'in-view' class from JavaScript,
+    * this rule targets the letters and changes their opacity to 1.
+    * The staggered delay on each letter creates the cascade effect.
+    */
+.scroll-word {
+    display: inline-block;
+    opacity: 0.2; /* Initial, non-revealed state */
+    transition: opacity 0.4s ease-in-out; /* Changed from linear to ease-in-out and increased duration */
+    will-change: opacity;
+}
+
+/* --- Custom Cursor Styling --- */
+.custom-cursor {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #CCC;
+    position: fixed;
+    pointer-events: none; /* Allows clicks to pass through the cursor */
+    z-index: 9999;
+    /* Hide initially and use transform for positioning for performance */
+    top: 0;
+    left: 0;
+    transform: translate(-100%, -100%);
+    /* Smooth transition for all transform changes (scale, translate) */
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform-origin: center center;
+    mix-blend-mode: difference;
+}

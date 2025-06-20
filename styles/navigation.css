@@ -1,0 +1,98 @@
+/* NAVIGATION STYLES */
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 4px 48px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: calc(100vw);
+    transform: translateY(-100%);
+    animation: slideDown 0.8s forwards 0.2s; /* 0.8s delay to start after the banner shrinks */
+    z-index: 99;
+}
+
+/* Keyframe animation for the content to change height */
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0px);
+    }
+}
+
+nav > div {
+    flex: 1;
+    text-decoration: none;
+    color: #000;
+}
+
+.link {
+    padding: 12px;
+    width: fit-content;
+    background-color: rgba(255,255,255,0.5);
+    backdrop-filter: blur(10px);
+}
+
+#nav-logo {
+    max-height: 24px;
+    padding: 0;
+    margin: 0;
+}
+
+#contact-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#contact-button > a {
+    text-align: right;
+}
+
+nav > ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    gap: 8px;
+}
+
+nav > ul > li > a {
+    color: #4a5565;
+    text-decoration: none;
+}
+
+nav > ul > li > a:hover {
+    color: #000;
+    text-decoration: none;
+}
+
+
+/* Styles for the individual navbar elements */
+#nav-logo-container,
+#nav-links,
+#contact-button {
+    transition: transform 0.5s ease-in-out;
+}
+
+/* --- Scroll Animation Classes --- */
+
+/* This class is added to the nav when scrolled down */
+#navigation.nav-hidden #nav-logo-container {
+    transform: translateX(-150%); /* Slide out to the left */
+}
+
+#navigation.nav-hidden #nav-links {
+    transform: translateY(-150%); /* Slide up */
+}
+
+#navigation.nav-hidden #contact-button {
+    transform: translateX(150%); /* Slide out to the right */
+}

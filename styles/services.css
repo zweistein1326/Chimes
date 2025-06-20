@@ -1,0 +1,149 @@
+#services {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 32px;
+    gap: 48px;
+    min-height: 100vh;
+}
+
+#services > h3 {
+    max-width: 50%;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 40px;
+    font-weight: 100;
+    text-align: center;
+}
+
+
+#services > div > .service-tile > p:nth-child(2){
+    opacity: 0.5;
+}
+
+
+/* Accordion Styles */
+
+#accordion-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+
+.accordion-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 35%;
+    border-bottom: 1px solid #BBB;
+    gap: 4px;
+    cursor: pointer;
+}
+
+.accordion-icon {
+    font-size: 1.5rem;
+    transition: transform 0.4s ease-in-out;
+}
+
+/* The content wrapper that will slide up and down */
+.accordion-content {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
+}
+
+.accordion-content p {
+    padding-bottom: 24px;
+    line-height: 1.75;
+    color: #000; /* text-gray-300 */
+}
+
+/* --- Active State --- */
+
+/* When the item is active, expand the content */
+.accordion-item.active .accordion-content {
+    max-height: 200px; /* Set a max-height large enough to show the content */
+}
+
+/* Rotate the icon for visual feedback */
+.accordion-item.active .accordion-icon {
+    transform: rotate(45deg);
+}
+
+.accordion-header {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    overflow: hidden; /* Crucial for the effect */
+}
+
+.accordion-header > div:nth-child(2) {
+    opacity: 0.5;
+}
+
+.accordion-header div {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    position: relative;
+    /* Add opacity to the transition */
+    transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1), opacity 0.4s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.accordion-header > div > span {
+    display: inline-block;
+    transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1), opacity 0.4s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.accordion-header > div:nth-child(2)  {
+    justify-content: flex-end;
+}
+
+.accordion-header div:nth-child(2)  {
+    justify-content: flex-end;
+}
+
+/* The ::before pseudo-element holds the text that slides in */
+.accordion-header > div:nth-child(1):before {
+    content: attr(data-text); /* Gets the text from the data-text attribute */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: fit-content;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(100%); /* Start position: below the button */
+    transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.accordion-header > div:nth-child(2):before {
+    content: attr(data-text); /* Gets the text from the data-text attribute */
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: fit-content;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(100%); /* Start position: below the button */
+    transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.accordion-item:hover > .accordion-header > div > span {
+    transform: translateY(-100%); /* On hover, slide original text up and out */
+    opacity: 0; /* Fade out the original text */
+}
+
+.accordion-item:hover > .accordion-header > div::before {
+    transform: translateY(0); /* On hover, slide new text in from the bottom */
+}
