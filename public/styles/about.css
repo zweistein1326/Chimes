@@ -26,3 +26,18 @@
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     content: "/WHO/";
 }
+
+@media only screen and (max-width: 768px) {
+
+    #about {
+        display: flex;
+        flex-direction: column;
+        padding: 32px;
+        min-height: 100vh;
+    }
+
+    #about > div {
+        flex: 1;
+        padding: 0 12px;
+    }
+}

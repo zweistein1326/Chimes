@@ -149,7 +149,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         // Add hover listeners to all button elements
         document.querySelectorAll('button').forEach(button => {
             button.addEventListener('mouseenter', () => {
-                hoverScale = 2.5; // Enlarge cursor on hover
+                hoverScale = 2; // Enlarge cursor on hover
             });
             button.addEventListener('mouseleave', () => {
                 hoverScale = 1; // Return to default size on leave

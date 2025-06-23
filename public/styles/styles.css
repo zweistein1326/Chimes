@@ -74,3 +74,9 @@ main > div{
     transform-origin: center center;
     mix-blend-mode: difference;
 }
+
+@media only screen and (max-width: 768px) {
+    .custom-cursor {
+        display: none;
+    }
+}
