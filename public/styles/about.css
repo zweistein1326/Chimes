@@ -1,8 +1,9 @@
 #about {
     display: flex;
     flex-direction: row;
-    padding: 32px;
+    padding: 128px 32px;
     min-height: 100vh;
+    scroll-snap-align: start;
 }
 
 #about > div {

@@ -15,10 +15,16 @@ nav {
 
 /* Keyframe animation for the content to change height */
 @keyframes slideDown {
-    from {
+    0% {
+        display: none;
         transform: translateY(-100%);
     }
-    to {
+    50% {
+        display: block;
+        transform: translateY(-100%);
+    }
+    100% {
+        display: flex;
         transform: translateY(0px);
     }
 }

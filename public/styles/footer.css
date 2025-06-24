@@ -3,11 +3,12 @@ footer {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 50vh;
+    min-height: 50vh;
     width: 100%;
     color: #FFF;
     padding: 32px;
     position: fixed;
     bottom:0;
     z-index: -1;
+    scroll-snap-align: start;
 }

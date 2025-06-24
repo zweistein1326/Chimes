@@ -1,23 +1,27 @@
 #home {
-    height: calc(100vh);   
+    height: 100vh;
     max-height: 100vh;
     padding: 32px;
     display: flex;
     flex-direction: column;
     align-items: stretch;
     justify-content: flex-end;
-    gap: 64px;
+    gap: 0px;
+    animation: expandGap 0.5s forwards 1.8s;
+    scroll-snap-align: start;
+    min-height: 100vh;
 }
 
 #home > #info {
-    height: 0px;
+    flex: 0;
     display: flex;
     overflow: hidden;
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-end;
     gap: 64px;
-    animation: changeHeight 0.5s forwards 0.8s; /* 0.8s delay to start after the banner shrinks */
+    opacity: 0;
+    animation: changeHeight 0.5s forwards 1.8s; /* 0.8s delay to start after the banner shrinks */
 }
 
 #home > #info > div {
@@ -39,7 +43,7 @@
     height: 100%;
     padding: 8px;
     background: radial-gradient(at 50.6466% 40%, rgb(251, 240, 178) 0px, transparent 50%) 0% 0% / contain, radial-gradient(at 35.3448% 77.2917%, rgb(255, 175, 106) 0px, transparent 50%), radial-gradient(at 1.93966% 90.625%, rgb(245, 244, 235) 0px, transparent 50%), radial-gradient(at 97.0905% 14.5833%, rgb(249, 242, 204) 0px, transparent 50%), radial-gradient(at 16.9181% 3.75%, rgb(249, 243, 170) 0px, transparent 50%), rgb(251, 240, 178);
-    animation: shrink 0.8s forwards 0.2s;
+    animation: 0.8s ease-in-out 1s shrink forwards;
 }
 
 #banner > * {
@@ -47,9 +51,19 @@
     opacity: 0;
     
     /* Animation for the content to fade in */
-    animation: fadeIn 0.5s forwards 0.8s; /* 0.8s delay to start after the banner shrinks */
+    animation: fadeIn 0.5s forwards 1.8s; /* 0.8s delay to start after the banner shrinks */
 }
 
+
+/* Keyframe animation for the banner height */
+@keyframes expandGap {
+    from {
+        gap: 0px;
+    }
+    to {
+        gap: 64px;
+    }
+}
 
 /* Keyframe animation for the banner height */
 @keyframes shrink {
@@ -74,15 +88,11 @@
 /* Keyframe animation for the content to change height */
 @keyframes changeHeight {
     0% {
-        height: 0px;
-        opacity: 0;
-    }
-    50% {
-        height: auto;
+        flex: 0;
         opacity: 0;
     }
     100% {
-        height: auto;
+        flex: 1;
         opacity: 1;
     }
 }
